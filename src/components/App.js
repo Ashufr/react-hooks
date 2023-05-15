@@ -1,22 +1,22 @@
-import React, {useState}from "react";
+import React, { useState } from "react";
 
 function App() {
-const [count , setCount] = useState(0);
+  setInterval(updateTime, 1000);
 
-function increase(){
-  setCount(count + 1);
-}
+  var now = new Date().toLocaleTimeString();
+  const [time, setCount] = useState(now);
 
-function decrease(){
-  setCount(count - 1);
-}
+  function updateTime() {
+    var now = new Date().toLocaleTimeString();
+    setCount(now);
+  }
+
   return (
     <div className="container">
-      <h1>{count}</h1>
-      <button onClick={decrease}>-</button>
-      <button onClick={increase}>+</button>
+      <h1>{time}</h1>
+      <button onClick={updateTime}>Get Time</button>
     </div>
   );
 }
 
-export default App; 
+export default App;
